@@ -141,6 +141,9 @@ set mousehide  " Hide the mouse pointer while typing
 			" add any database in current directory
 			if filereadable("cscope.out")
 				cs add cscope.out
+			" add database pointed to environment
+			elseif $CSCOPE_DB != ""
+				cs add $CSCOPE_DB
 			endif
 			set csverb
 		endif
