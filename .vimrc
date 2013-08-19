@@ -86,7 +86,8 @@ set mousehide  " Hide the mouse pointer while typing
 " Auto-complete symbols {
 
 	inoremap ( ()<ESC>i
-	inoremap { {<CR>}<ESC>O
+	inoremap { {}<ESC>i
+	autocmd FileType c,cpp inoremap { {<CR>}<ESC>O
 	inoremap [ []<ESC>i
 	inoremap " ""<ESC>i
 	inoremap ' ''<ESC>i
