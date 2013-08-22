@@ -14,9 +14,10 @@ set nocompatible
 
 	set cursorline					" highlight current line
 	set cursorcolumn				" highlight current column
+	set foldmethod=indent           " fold the code by indent
 	hi cursorline guibg=#333333		" highlight bg color of current line
 	hi CursorColumn guibg=#333333   " highlight cursor
-
+    
 	if has('cmdline_info')
 		set ruler					" show the ruler
 		set showcmd					" show partial commands in status line and selected characters/lines in visual mode
@@ -65,7 +66,8 @@ filetype indent on
 " Don't update the display while executing macros
 set lazyredraw
 
-
+" For C/C++ Program 
+autocmd FileType c,cpp nmap <F7> <ESC>:w<CR>:make clean<CR>:make<CR>:cw<CR>
 nmap <silent> ,ev :e $MYVIMRC<CR>      " edit .vimrc(mnemonic for the key sequence is 'e'dit 'v'imrc)
 noremap <silent> ,j :wincmd j<CR>      " Move the cursor to the window ablow the current one
 noremap <silent> ,h :wincmd h<cr>      " Move the cursor to the window left of the current one
