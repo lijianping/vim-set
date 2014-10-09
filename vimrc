@@ -133,6 +133,9 @@ syntax on
 " edit .vimrc(mnemonic for the key sequence is 'e'dit 'v'imrc)
 nmap ,ev :vs<CR>:e $MYVIMRC<CR>
 
+" Insert date
+noremap <F2> :read !date +'\%Y/\%m/\%d \%H:\%M'<CR>kJ$
+
 "}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
