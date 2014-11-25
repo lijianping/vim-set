@@ -270,7 +270,7 @@ inoremap [ []<ESC>i
 	
 	" Omnicppcomplete {
 	
-		map <C-F12> :!ctags -R --c++-kinds=+p --fields=+ias --extra=+q .<CR>
+		map <F12> :!ctags -R --c++-kinds=+p --fields=+ias --extra=+q .<CR>
 		
 	" }
 	
@@ -279,7 +279,10 @@ inoremap [ []<ESC>i
 	" }
 	
 	" cscope setting {
-	
+		
+		" generate cscope database and add to project
+		map <F11> :!cscope -Rbq *;<CR> :cs add cscope.out<CR>
+		
 		if has("cscope")
 			set csprg=/usr/local/bin/cscope
 			set csto=1
