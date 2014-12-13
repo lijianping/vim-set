@@ -76,13 +76,13 @@ set laststatus=2
 set mousehide
 
 " use indents of 4 spaces
-" set shiftwidth=4
+set shiftwidth=4
 
 " an indentation every four columns
-" set tabstop=4
+set tabstop=4
 
 " let backspace delete indent
-" set softtabstop=4
+set softtabstop=4
 
 " Don't update the display while executing macros
 set lazyredraw
@@ -132,6 +132,24 @@ syntax on
 
 " edit .vimrc(mnemonic for the key sequence is 'e'dit 'v'imrc)
 nmap ,ev :vs<CR>:e $MYVIMRC<CR>
+
+" jump between header and source for c/c++ file
+nmap th :A<CR>
+
+" vertical and jump between header and source for c/c++ file
+nmap thv :AV<CR>
+
+" splits and jump between header and source for c/c++ file
+nmap ths :AS<CR>
+
+" swtiches to file under cursor
+nmap ih :IH<CR>
+
+" vertical and swtiches to file under cursor
+nmap ihv :IHV<CR>
+
+" splits and swtiches to file under cursor
+nmap ihs :IHS<CR>
 
 " Insert date
 noremap <F2> :read !date +'\%Y/\%m/\%d \%H:\%M'<CR>kJ$
