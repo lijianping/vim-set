@@ -10,20 +10,10 @@ if [ ! -e /usr/local/bin/ctags ]; then
 	rm -rf ctags-5.8
 fi
 
-# Install cscope plugin
-if [ ! -e /usr/local/bin/cscope ]; then
-	sudo apt-get install libncurses5-dev
-	echo "Install cscope plugin ..."
-	tar zxvf cscope-15.8a.tar.gz
-	cd cscope-15.8a 
-	./configure && make
-	sudo make install
-	cd ..
-	rm -rf cscope-15.8a
+if [ ! -d .vim ]; then
+	echo "create .vim dir"
+	mkdir $HOME/.vim
 fi
-
-echo "cp .vim to $HOME "
-cp -r vim $HOME/.vim
 
 echo "cp .vimrc to $HOME "
 cp vimrc $HOME/.vimrc

@@ -1,394 +1,355 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                              BASIC SETTING                               "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           BASIC SETTING                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
 
-"{
+	" Forgetting bing compatible with VI
+	set nocompatible
 
-" Forgetting bing compatible with VI
-set nocompatible
+	" Loading a colorscheme
+	colorscheme desert
+	color desert
 
-" Loading a colorscheme
-color desert
-colorscheme desert
+	" Highlighting the current line and setting blackground color
+	" set cursorline
+	" hi cursorline guibg=#333333
 
-" Highlighting the current line and setting blackground color
-" set cursorline
-" hi cursorline guibg=#333333
+	" Highlighting the current column and setting blackground color
+	" set cursorcolumn
+	" hi cursorcolumn guibg=#333333
 
-" Highlighting the current column and setting blackground color
-" set cursorcolumn
-" hi cursorcolumn guibg=#333333
+	" Showing the line number
+	set number
 
-" Showing line numbers
-set number
+	" Showing matching brackets/parenthesis
+	set showmatch
 
-" Showing matching brackets/parenthesis
-set showmatch
+	" Finding as you type search
+	set incsearch
 
-" Stopping find if reached file EOF
-set nowrapscan
+	" Highlighting search terms
+	set hlsearch
 
-" Finding as you type search
-set incsearch
+	" Case insensitive search
+	set ignorecase
 
-" Highlighting search terms
-set hlsearch
+	" Case sensitive when uc present
+	set smartcase
 
-" case insensitive search
-set ignorecase
+	" Setting no backup file
+	set nobackup
 
-" Case sensitive when uc present
-set smartcase
+	" Setting automatic indent
+	set autoindent
 
-" Setting no backup file
-set nobackup
+	if has('cmdline_info')
+		" Showing the ruler
+		set ruler
+		" Showing partial commands in status line
+		" and selected characters/lines in visual mode
+		set showcmd
+	endif
 
-" Setting automatic indent
-set autoindent
+	" Setting the history commands remembering
+	set history=50
 
-if has('cmdline_info')
-	" Showing the ruler
-	set ruler
-	" Showing partial commands in status line
-	" and selected characters/lines in visual mode
-	set showcmd
-endif
+	" Windows can be zero line high
+	set winminheight=0
 
-" Setting the history commands remembering
-set history=50
+	" No extra space between rows
+	set linespace=0
 
-" Windows can be 0 line high
-set winminheight=0
+	" Backspace for dummys
+	set backspace=indent,eol,start
 
-" No extra space between rows
-set linespace=0
+	" Always show the status bar
+	set laststatus=2
 
-" Backspace for dummys
-set backspace=indent,eol,start
+	" Setting command height
+	" set cmdheight=3
 
-" Always show the status bar
-set laststatus=2
+	" Hiding the mouse pointer while typing
+	set mousehide
 
-" Setting command height
-" set cmdheight=3
+	" Using indents of 4 spaces
+	set shiftwidth=4
 
-" Hide the mouse pointer while typing
-set mousehide
+	" An indentation every four columns
+	set tabstop=4
 
-" use indents of 4 spaces
-set shiftwidth=4
+	" let backspace delete indent
+	set softtabstop=4
 
-" an indentation every four columns
-set tabstop=4
+	" Don't update the display while executing macros
+	set lazyredraw
 
-" let backspace delete indent
-set softtabstop=4
+	" Enable enhanced command-line completion. Presumes you have complied
+	" with +wildmenu. See :help 'wildmenu'
+	" show list instead of just completing
+	set wildmenu
 
-" Don't update the display while executing macros
-set lazyredraw
+	" command <Tab> completion, list matches, then longest common part, then all.
+	set wildmode=list:longest,full
 
-" Enable enhanced command-line completion. Presumes you have complied
-" with +wildmenu. See :help 'wildmenu'
-" show list instead of just completing
-set wildmenu
+	" backspace and cursor key wrap to
+	set whichwrap=b,s,h,l,<,>,[,]
 
-" command <Tab> completion, list matches, then longest common part, then all.
-set wildmode=list:longest,full
+	" lines to scroll when cursor leaves screen
+	set scrolljump=5
 
-" backspace and cursor key wrap to
-set whichwrap=b,s,h,l,<,>,[,]
+	" minimum lines to keep above and below cursor
+	set scrolloff=3
 
-" lines to scroll when cursor leaves screen
-set scrolljump=5
-
-" minimum lines to keep above and below cursor
-set scrolloff=3
-
-" Automatic fold code
-" set foldenable
+	" Automatic fold code
+	" set foldenable
 
-" The /g flag on :s substitutions by default
-set gdefault
+	" The /g flag on :s substitutions by default
+	set gdefault
 
-" Highlight problematic whitespace
-" set list
-" set listchars=tab:>.,trail:.,extends:#,nbsp:.
+	" Highlight problematic whitespace
+	" set list
+	" set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" Getting that filetype stuff happening
-filetype on
-filetype plugin on
-filetype indent on
+	" Getting that filetype stuff happening
+	filetype on
+	filetype plugin on
+	filetype indent on
 
-" Highlighting syntax
-syntax on
+	" Highlighting syntax
+	syntax on
 
-"}
+" }
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                             LOAD VUNDLE PLUGINS                          "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                            KEYS MAPPING                           "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
 
-"{
+	" Mapping edit .vimrc
+	nmap ,ev :sp<CR>:e $MYVIMRC<CR>
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+	" Automatic complete ()
+	inoremap ( ()<ESC>i
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+	" Automatic complete []
+	inoremap [ []<ESC>i
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between Vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
+	" Automatic complete {}
+	inoremap { {}<ESC>i
 
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+	" Moving the cursor to the above of the current window
+	noremap ,k :wincmd k<CR>
 
-" YCM (YouCompleteMe) plugin
-Plugin 'Valloric/YouCompleteMe'
+	" Moving the cursor to the ablow of the current window
+	noremap ,j :wincmd j<CR>
 
-" Avoid a name conflict with L9
-Plugin 'user/L9', {'name': 'newL9'}
+	" Moving the cursor to the left of the current window
+	noremap ,h :wincmd h<CR>
 
-" All of your Plugins must be added before the following line
-call vundle#end()
-filetype plugin indent on
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-" 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+	" Moving the cursor to the right of the current window
+	noremap ,l :wincmd l<CR>
 
-"}
+	" Moving the current window to the above
+	noremap ,mk :wincmd K<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                              KEYS MAPPING                                "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" Moving the current window to the ablow
+	noremap ,mj :wincmd J<CR>
 
-"{
+	" Moving the current window to the left
+	noremap ,mh :wincmd H<CR>
 
-" edit .vimrc(mnemonic for the key sequence is 'e'dit 'v'imrc)
-nmap ,ev :vs<CR>:e $MYVIMRC<CR>
+	" Moving the current window to the right
+	noremap ,ml :wincmd L<CR>
 
-" jump between header and source for c/c++ file
-nmap th :A<CR>
+	" Closing the window at above of the current window
+	noremap ,ck :wincmd k<CR>:close<CR>
 
-" vertical and jump between header and source for c/c++ file
-nmap thv :AV<CR>
+	" Closing the window at below of the current window
+	noremap ,cj :wincmd j<CR>:close<CR>
 
-" splits and jump between header and source for c/c++ file
-nmap ths :AS<CR>
+	" Closing the window at left of the current window
+	noremap ,ch :wincmd h<CR>:close<CR>
 
-" swtiches to file under cursor
-nmap ih :IH<CR>
+	" Closing the window at right of the current window
+	noremap ,cl :wincmd l<CR>:close<CR>
 
-" vertical and swtiches to file under cursor
-nmap ihv :IHV<CR>
+	" Closing the current window
+	noremap ,cc :close<CR>
 
-" splits and swtiches to file under cursor
-nmap ihs :IHS<CR>
+	" Inserting date
+	noremap <F12> :read !date +'\%Y-\%m-\%d \%H:\%M'<CR>kJ$
 
-" Insert date
-noremap <F2> :read !date +'\%Y/\%m/\%d \%H:\%M'<CR>kJ$
+" }
 
-"}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                         C/C++ PROGRAMMING                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            WINDOW MANAGEMENT                             "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" automatic complete {}
+	autocmd FileType c,cpp,cc inoremap { {<CR>}<ESC>O
 
-"{
+	" Compiling C/C++ program
+	autocmd FileType c,cpp,cc nmap <F7> <ESC>:wa<CR>:make clean<CR>:make<CR>:cw<CR>
 
-" Moving the cursor to the above of the current window
-noremap ,k :wincmd k<CR>
+	" Automatic complete "
+	autocmd FileType c,cpp,cc inoremap " ""<ESC>i
 
-" Moving the cursor to the ablow of the current window
-noremap ,j :wincmd j<CR>
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	"                        A.VIM PLUGIN SETTING                       "
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" {
 
-" Moving the cursor to the left of the current window
-noremap ,h :wincmd h<CR>
+	" jump between header and source for c/c++ file
+	nmap th :A<CR>
 
-" Moving the cursor to the right of the current window
-noremap ,l :wincmd l<CR>
+	" vertical and jump between header and source for c/c++ file
+	nmap thv :AV<CR>
 
-" Moving the current window to the above
-noremap ,mk :wincmd K<CR>
+	" splits and jump between header and source for c/c++ file
+	nmap ths :AS<CR>
 
-" Moving the current window to the ablow
-noremap ,mj :wincmd J<CR>
+	" swtiches to file under cursor
+	nmap ih :IH<CR>
 
-" Moving the current window to the left
-noremap ,mh :wincmd H<CR>
+	" vertical and swtiches to file under cursor
+	nmap ihv :IHV<CR>
 
-" Moving the current window to the right
-noremap ,ml :wincmd L<CR>
-
-" Closing the window at above of the current window
-noremap ,ck :wincmd k<CR>:close<CR>
-
-" Closing the window at below of the current window
-noremap ,cj :wincmd j<CR>:close<CR>
-
-" Closing the window at left of the current window
-noremap ,ch :wincmd h<CR>:close<CR>
-
-" Closing the window at right of the current window
-noremap ,cl :wincmd l<CR>:close<CR>
-
-" Closing the current window
-noremap ,cc :close<CR>
-
-"}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            C/C++ PROGRAMMING                             "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"{
-
-" automatic complete {}
-autocmd FileType c,cpp inoremap { {<CR>}<ESC>O
-
-" Compiling C/C++ program
-autocmd FileType c,cpp nmap <F7> <ESC>:wa<CR>:make clean<CR>:make<CR>:cw<CR>
-
-"}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                            AUTOMATIC SYMBOLS                             "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{
-
-" automatic complete ()
-inoremap ( ()<ESC>i
-
-" automatic complete {}
-inoremap { {}<ESC>i
-
-" automatic complete []
-inoremap [ []<ESC>i
-
-" automatic complete ""
-" inoremap " ""<ESC>i
-
-" automatic complete ''
-" inoremap ' ''<ESC>i
-
-"}
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                 VIM PLUGINS                              "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"{
-	" Taglist {
-		set tags=tags    
-	    set autochdir
-
-	    let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-	    let Tlist_Show_One_File=1
-	    let Tlist_OnlyWindow=1
-	    let Tlist_Use_Right_Window=0
-	    let Tlist_Sort_Type='name'
-	    let Tlist_Exit_OnlyWindow=1
-	    let Tlist_Show_Menu=1
-	    let Tlist_Max_Submenu_Items=10
-	    let Tlist_Max_Tag_length=20
-	    let Tlist_Use_SingleClick=0
-	    let Tlist_Auto_OPen=0
-	    let Tlist_Close_On_Select=0
-	    let Tlist_File_Fold_Auto_Close=1
-	    let Tlist_GainFocus_On_ToggleOpen=0
-	    let Tlist_Process_File_Always=1
-	    let Tlist_WinHeight=10
-	    let	Tlist_WinWidth=18
-	    let Tlist_Use_Horiz_Window=0
-	    "let mapleader=","
-	    map <silent> tlg :TlistToggle<CR>
-	"}
-	
-	" WinManager {
-	
-		let g:winManagerWindowLayout='FileExplorer|TagList'
-	    nmap wm :WMToggle<CR>
+	" splits and swtiches to file under cursor
+	nmap ihs :IHS<CR>
 
 	" }
 	
-	" QuickFix {
-		" show complie error information
-		nmap err :cw<CR>
-		" jump to the next error information
-	    nmap ern :cn<CR>
-	  	" jump to the previouse error information
-	    nmap erp :cp<CR>
-	
-	" }
-	
-	" Omnicppcomplete {
-	
-		map <F12> :!ctags -R --c++-kinds=+p --fields=+ias --extra=+q .<CR>
-		
-	" }
-	
-	" pathogen {
-		execute pathogen#infect()
-	" }
-	
-	" cscope setting {
-		
-		" generate cscope database and add to project
-		map <F11> :!cscope -Rbq *;<CR> :cs add cscope.out<CR>
-		
-		if has("cscope")
-			set csprg=/usr/local/bin/cscope
-			set csto=1
-			set cst
-			set nocsverb
-			" add any database in current directory
-			if filereadable("cscope.out")
-				cs add cscope.out
-			" add database pointed to environment
-			elseif $CSCOPE_DB != ""
-				cs add $CSCOPE_DB
-			endif
-			set csverb
-		endif
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	"                     OmniCppComplete PLUGIN SETTING                "
+	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-	 	" finding c language symbols, for example, functions, enums, macros
-		nmap <C-c>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+	set nocp
 
-		" Finding the definition postion of the functions,enums and macros
-		nmap <C-c>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+	" Extract C/C++ symbols information
+	map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-		" Finding the caller functions
-		nmap <C-c>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+	" Add tags file
+	set tags+=/usr/include/tags
 
-		nmap <C-c>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+	" Display the prototype of a function
+	let OmniCpp_ShowPrototypeInAbbr = 1
 
-		nmap <C-c>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-		
-		nmap <C-c>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	" Select/Don't select first popup item
+	let OmniCpp_SelectFirstItem = 2
 
-		nmap <C-c>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+" }
 
-		nmap <C-c>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                      TAGLIST PLUGINS SETTING                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
 
-	" }
+	" NOTICE: This plugin need ctags
 
-"}
+"	set tags+=tags
+
+	set autochdir
+
+	let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+	let Tlist_Show_One_File=1
+	let Tlist_OnlyWindow=1
+	let Tlist_Use_Right_Window=0
+	let Tlist_Sort_Type='name'
+	let Tlist_Exit_OnlyWindow=1
+	let Tlist_Show_Menu=1
+	let Tlist_Max_Submenu_Items=10
+	let Tlist_Max_Tag_length=20
+	let Tlist_Use_SingleClick=0
+	let Tlist_Auto_OPen=0
+	let Tlist_Close_On_Select=0
+	let Tlist_File_Fold_Auto_Close=1
+	let Tlist_GainFocus_On_ToggleOpen=0
+	let Tlist_Process_File_Always=1
+	let Tlist_WinHeight=10
+	let Tlist_WinWidth=18
+	let Tlist_Use_Horiz_Window=0
+	map <silent> tlg :TlistToggle<CR>
+
+" }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                     WINMANAGER  PLUGIN SETTING                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
+
+	" Setting hot key
+	nmap wm :WMToggle<CR>
+
+	" Face
+	let g:winManagerWindowLayout = "FileExplorer,BufExplorer|TagList"
+
+" }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                     NERDTREE PLUGINS SETTING                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
+
+	" Always show bookmarks
+	let NERDTreeShowBookmarks=1
+
+	" Setting NERDTree windows size
+	let NERDTreeWinSize=25
+
+	" Setting NERDTree windows placed
+"	let NERDTreeWinPos="right"
+
+	" Highlighting the current line
+	let NERDTreeHighlightCursorline=0
+
+	noremap wn :NERDTree<CR>
+
+" }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                       VUNDLE PLUGINS SETTING                      "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
+
+	" Must be required
+	filetype off
+
+	" Setting the runtime path to include Vundle and initialize
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+
+	" let Vundle manage Vundle, required
+	Plugin 'gmarik/Vundle.vim'
+
+	" a.vim switch between header file and source file
+	Plugin 'vim-scripts/a.vim'
+
+	" A classical windows type environment
+	Plugin 'vim-scripts/winmanager'
+
+	" c-support plugin
+	" Plugin 'vimscript/c-support'
+
+	" YouCompleteMe
+	" Plugin 'Valloric/YouCompleteMe'
+
+	" Taglist plugin
+	Plugin 'vim-scripts/taglist.vim'
+
+	" OmniCppComplete
+	" vim-scripts/OmniCppComplete
+	Plugin 'vim-scripts/OmniCppComplete'
+
+	" Nerdtree plugin
+	Plugin 'scrooloose/nerdtree'
+
+	" All of plugins must be added before the following line
+	call vundle#end()
+
+	filetype plugin indent on
+
+	filetype on
+
+" }
+
