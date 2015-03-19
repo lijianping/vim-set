@@ -10,9 +10,13 @@ if [ ! -e /usr/local/bin/ctags ]; then
 	rm -rf ctags-5.8
 fi
 
-if [ ! -d .vim ]; then
-	echo "create .vim dir"
-	mkdir $HOME/.vim
+cp -r vim $HOME/.vim
+
+git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+
+if [ "$?" -ne "0" ]; then
+	echo "git clone error, please check if you install git tool"
+	exit 1
 fi
 
 echo "cp .vimrc to $HOME "
