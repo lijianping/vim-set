@@ -129,13 +129,13 @@
 	nmap ,ev :sp<CR>:e $MYVIMRC<CR>
 
 	" Automatic complete ()
-	inoremap ( ()<ESC>i
+	" inoremap ( ()<ESC>i
 
 	" Automatic complete []
-	inoremap [ []<ESC>i
+	" inoremap [ []<ESC>i
 
 	" Automatic complete {}
-	inoremap { {}<ESC>i
+	" inoremap { {}<ESC>i
 
 	" Moving the cursor to the above of the current window
 	noremap ,k :wincmd k<CR>
@@ -187,7 +187,7 @@
 " {
 
 	" automatic complete {}
-	autocmd FileType c,cpp,cc inoremap { {<CR>}<ESC>O
+	autocmd FileType c,cpp,cc inoremap F{ {<CR>}<ESC>O
 
 	" Compiling C/C++ program
 	autocmd FileType c,cpp,cc nmap <F7> <ESC>:wa<CR>:make clean<CR>:make<CR>:cw<CR>
@@ -321,6 +321,9 @@
 
 	" let Vundle manage Vundle, required
 	Plugin 'gmarik/Vundle.vim'
+
+	" Plugin code_complete
+	Plugin 'mbbill/code_complete'
 
 	" a.vim switch between header file and source file
 	Plugin 'vim-scripts/a.vim'
