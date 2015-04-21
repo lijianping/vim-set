@@ -247,9 +247,9 @@
 
 	" NOTICE: This plugin need ctags
 
-"	set tags+=tags
-
 	set autochdir
+	set tags+=tags;
+
 
 	let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 	let Tlist_Show_One_File=1
