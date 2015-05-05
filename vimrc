@@ -129,10 +129,10 @@
 	nmap ,ev :sp<CR>:e $MYVIMRC<CR>
 
 	" Automatic complete ()
-	" inoremap ( ()<ESC>i
+	inoremap ( ()<ESC>i
 
 	" Automatic complete []
-	" inoremap [ []<ESC>i
+	inoremap [ []<ESC>i
 
 	" Automatic complete {}
 	" inoremap { {}<ESC>i
@@ -308,6 +308,25 @@
 " }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                     POWERLINE PLUGINS SETTING                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
+
+	" Show Unicode glyphs
+	set encoding=utf-8
+
+	" Tell vim that the terminal supports 256 colors
+	set t_Co=256
+
+	" Set powerline theme
+	" let g:Powerline_theme = 'solarized256'
+
+	" Set powerline colorscheme
+	let g:Powerline_colorscheme = 'solarized256'
+" }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       VUNDLE PLUGINS SETTING                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {
@@ -346,6 +365,9 @@
 
 	" Nerdtree plugin
 	Plugin 'scrooloose/nerdtree'
+
+	" Powerline plugin
+	Plugin 'Lokaltog/vim-powerline'
 
 	" All of plugins must be added before the following line
 	call vundle#end()
