@@ -12,11 +12,14 @@ fi
 
 cp -r vim $HOME/.vim
 
-git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-
+which git >/dev/null
 if [ "$?" -ne "0" ]; then
-	echo "git clone error, please check if you install git tool"
+	echo "Can not find git tool, Please check if you install git tool"
 	exit 1
+fi
+
+if [ ! -e '/home/japin/.vim/bundle/Vundle.vim' ]; then
+	git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim >/dev/null 2>&1
 fi
 
 echo "cp .vimrc to $HOME "
