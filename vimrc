@@ -1,6 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           BASIC SETTING                           "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           BASIC SETTING                           " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {
 
 	" Forgetting bing compatible with VI
@@ -106,10 +105,6 @@
 	" The /g flag on :s substitutions by default
 	set gdefault
 
-	" Highlight problematic whitespace
-	" set list
-	" set listchars=tab:>.,trail:.,extends:#,nbsp:.
-
 	" Getting that filetype stuff happening
 	filetype on
 	filetype plugin on
@@ -176,6 +171,14 @@
 	" Closing the current window
 	noremap ,cc :close<CR>
 
+	" Show tab
+	" Highlight problematic whitespace
+	noremap <F3> :set list<CR>:set listchars=tab:>-,trail:-,extends:#,nbsp:-<CR>
+	noremap <F4> :set nolist<CR>
+
+	" No highlight
+	noremap ,nh :nohl<CR>
+
 	" Inserting date
 	noremap <F12> :read !date +'\%Y-\%m-\%d \%H:\%M'<CR>kJ$
 
@@ -210,13 +213,13 @@
 	nmap ths :AS<CR>
 
 	" swtiches to file under cursor
-	nmap ih :IH<CR>
+	nmap Ih :IH<CR>
 
 	" vertical and swtiches to file under cursor
-	nmap ihv :IHV<CR>
+	nmap Ihv :IHV<CR>
 
 	" splits and swtiches to file under cursor
-	nmap ihs :IHS<CR>
+	nmap Ihs :IHS<CR>
 
 	" }
 	
