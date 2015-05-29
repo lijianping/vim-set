@@ -1,5 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                           BASIC SETTING                           " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                           BASIC SETTING                           " 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " {
 
 	" Forgetting bing compatible with VI
@@ -104,6 +106,12 @@
 
 	" The /g flag on :s substitutions by default
 	set gdefault
+
+	" Do not flod code at first
+	set nofen
+
+	" flod code
+	set fdm=indent
 
 	" Getting that filetype stuff happening
 	filetype on
@@ -273,6 +281,15 @@
 	let Tlist_WinWidth=18
 	let Tlist_Use_Horiz_Window=0
 	map <silent> tlg :TlistToggle<CR>
+
+" }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                   CODE_COMPLETE PLUGIN SETTING                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
+
+	set completeopt=longest
 
 " }
 
