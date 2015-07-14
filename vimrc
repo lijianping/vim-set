@@ -252,6 +252,63 @@
 " }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                      CSCOPE PLUGINS SETTING                       "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {
+
+	function! LoadCscope()
+		if filereadable("cscope.out")
+			cscope add cscope.out
+		elseif $CSCOPE_DB != ""
+			cscope add $CSCOPE_DB
+		endif
+	endfunction
+
+	function! GenerateCscope()
+		cscope -Rb
+	endfunction
+
+	if has("cscope")
+		set csprg=/usr/local/bin/cscope
+		set csto=1
+		set cst
+		set nocsverb
+		call LoadCscope()
+		set csverb
+	endif
+
+	
+	" Find the C symbol
+	nmap ,sy :cscope find s <C-R>=expand("<cword>")<CR><CR>
+
+	" Find the definition
+	nmap ,de :cscope find g <C-R>=expand("<cword>")<CR><CR>
+
+	" Find the functions called by this function
+	nmap ,cd :cscope find d <C-R>expand("<cword>")<CR><CR>
+
+	" Find the cuntions calling by this function
+	nmap ,cg :cscope find c <C-R>=expand("<cword>")<CR><CR> 
+	
+	" Find the text string
+	nmap ,te :cscope find t <C-R>=expand("<cword>")<CR><CR>
+	
+	" Find the egrep pattern
+	nmap ,eg :cscope find e <C-R>=expand("<cword>")<CR><CR>
+	
+	" Find the file
+	nmap ,fi :cscope find f <C-R>=expand("<cfile>")<CR><CR>
+
+	" Find files #including this file
+	nmap ,if :cscope find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+
+	" Reset the cscope connection
+	nmap ,rcs :cscope reset<CR>
+
+	nmap ,lcs :call LoadCscope()<CR>
+" } 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      TAGLIST PLUGINS SETTING                      "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {

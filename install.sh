@@ -1,6 +1,7 @@
 #!/bin/bash 
 
-if [ ! -e /usr/local/bin/ctags ]; then
+which ctags >/dev/null
+if [ "$?" -ne "0" ]; then
 	echo "Start Install Ctags..."
 	tar zxvf ctags-5.8.tar.gz
 	cd ctags-5.8  
@@ -15,6 +16,12 @@ cp -r vim $HOME/.vim
 which git >/dev/null
 if [ "$?" -ne "0" ]; then
 	echo "Can not find git tool, Please check if you install git tool"
+	exit 1
+fi
+
+which cscope >/dev/null
+if [ "$?" -ne "0" ]; then
+	echo "You should install cscope first."
 	exit 1
 fi
 
