@@ -25,7 +25,7 @@ if [ "$?" -ne "0" ]; then
 	exit 1
 fi
 
-if [ ! -e '/home/japin/.vim/bundle/Vundle.vim' ]; then
+if [ ! -e $HOME'/.vim/bundle/Vundle.vim' ]; then
 	git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim >/dev/null 2>&1
 fi
 
